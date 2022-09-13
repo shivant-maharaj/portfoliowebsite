@@ -1,4 +1,4 @@
-baseURL: "https://shivant-maharaj.netlify.app/"
+baseURL: https://shivant-maharaj.netlify.app/
 languageCode: "en-us"
 title: "Shivant Maharaj"
 theme: "hugo-profile"
@@ -113,11 +113,10 @@ params:
       fontAwesomeIcons:
         - icon: fab fa-github
           url: https://github.com/shivant-maharaj
-        - icon: fab fa-twitter
+        - icon: fab fa-instagram
           url: https://example.com
-      customIcons:
-        - icon: /fav.png
-          url: "https://example.com"
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/shivant-maharaj-02b7a8130/
 
   # About
   about:
@@ -132,35 +131,35 @@ params:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
-        - "HTML"
-        - "CSS"
-        - "JavaScript"
-        - "React"
-        - "Node"
-        - "Express"
+        - "HTML & CSS"
+        - "R Studio"
+        - "PowerBI & Tableau"
+        - "Python"
+        - "SAS"
+        - "SQL"
 
   # Experience
   experience:
     enable: true
-    # title: "Custom Name"
+    title: "Experience"
     items:
-      - job: "Senior Software Developer"
-        company: "Facebook"
-        companyUrl: "https://example.com"
-        date: "Jan 2022 - present"
+      - job: "Data Scientist"
+        company: "BDO South Africa"
+        companyUrl: "https://www.bdo.co.za/en-za/home"
+        date: "Jan 2021 - Aug 2022"
         featuredLink:
           enable: true
           name: "View the project"
           url: "https://example.com"
         content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
 
-      - job: "Software Developer"
-        company: "Amazon"
-        companyUrl: "https://example.com"
-        date: "Sep 2020 - Dec 2021"
+      - job: "Head Information Systems Tutor"
+        company: "University of Cape Town"
+        companyUrl: "https://www.uct.ac.za"
+        date: "January 2020 - Dec 2020"
         featuredLink:
           enable: true
-          url: "https://example.com"
+          url: "https://www.uct.ac.za"
         info:
           enable: true
           content: I worked as a software developer for more than one year in Amazon.
@@ -171,7 +170,7 @@ params:
           - Created a frontend design for a product.
 
       - job: "Junior Software Developer"
-        company: "Apple"
+        company: "Africa Youth Ignited 4IR"
         companyUrl: "https://example.com"
         date: "Jan 2020 - Aug 2020"
         info:
@@ -210,22 +209,22 @@ params:
     # title: "Custom Name"
     # index: true
     items:
-      - title: "Master of Business Administration"
+      - title: "Masters in Analytics and Management"
         school:
-          name: "University of California, Berkeley"
-          url: "https://example.org"
-        date: "2013 - 2015"
-        GPA: "3.8 out of 5.0"
+          name: "London Business School"
+          url: "https://www.london.edu/masters-degrees/masters-in-analytics-and-management"
+        date: "2022 - 2023"
+        #GPA: "3.8 out of 5.0"
         content: |-
           Extracurricular Activities
             - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-      - title: "Bachelor of Science in Computer Science"
+      - title: "Bachelor of Business Science specialising in Information Systems"
         school:
-          name: "Massachusetts Institute of Technology"
-          url: "https://example.org"
-        date: "2009 - 2013"
-        GPA: "3.9 out of 5.0"
+          name: "University of Cape Town"
+          url: "https://commerce.uct.ac.za/applying-commerce/undergraduate-studies"
+        date: "2016 - 2020"
+        #GPA: "3.9 out of 5.0"
         content: |-
           I Publiced two papers in the ACM SIGCHI Conference on Artificial Intelligence.
           - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
@@ -238,31 +237,31 @@ params:
           enable: true
           name: "My academic record"
           url: "https://example.com"
-      - title: "High School"
-        school:
-          name: "Thomas Jefferson High School for Science and Technology."
-          url: "https://example.org"
-        GPA: "4.2 out of 5.0"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
+      # - title: "High School"
+      #   school:
+      #     name: "Thomas Jefferson High School for Science and Technology."
+      #     url: "https://example.org"
+      #   GPA: "4.2 out of 5.0"
+      #   featuredLink:
+      #     enable: true
+      #     url: "https://example.com"
 
   # Achievements
   achievements:
     enable: true
     # title: "Custom Name"
     items:
-      - title: Google kickstart runner
+      - title: ViaData Award for Excellence
         content: I solved all problems with optimal solution.
         url: https://example.com
-      - title: Facebook Hackathon Winner
+      - title: 1st Place - 3rd Year IS Systems Development Project
         content: Developed a product using Artificial Intelligence.
-      - title: Hugo Profile
+      - title: 2019 IS Top Achievers Award 
         content: Developed a theme and getting 1K+ downloads per month.
         url: "https://github.com/gurusabarish/hugo-profile"
-      - title: Microsoft Imagine Runner
+      - title: 3rd in Business Science 5 year programme (2016 Cohort)
         content: We are developed a product which can help others.
-      - title: Google Summer of Code
+      - title: Class Medal for Mathematics 1010
         content: Contributed to a open source project.
         url: https://example.com
 
@@ -319,13 +318,13 @@ params:
   #Contact
   contact:
     enable: true
-    #title: "Custom name"
-    content: What to find out more, have a chat, or grab a coffee? Reach out via the email below and I will get back to you!
+    title: "Let's grab a coffee!"
+    content: What to find out more, have a chat, or discuss an idea? Reach out via the email below and I will get back to you!
     email: smaharaj.mam2023@london.edu
     btnName: Mail me
 
   footer:
-    # recentPosts: false
+    recentPosts: false
     socialNetworks:
       github: https://github.com/shivant-maharaj
       linkedin: https://www.linkedin.com/in/shivant-maharaj-02b7a8130/
