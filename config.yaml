@@ -1,11 +1,11 @@
 baseURL: "https://hugo-profile.netlify.app"
 languageCode: "en-us"
-title: "Hugo Profile"
+title: "Shivant Maharaj"
 theme: "hugo-profile"
 
 Paginate: 3
-disqusShortname: gurusabarish
-googleAnalytics: G-DWJJVE27WD
+#disqusShortname: gurusabarish
+#googleAnalytics: G-DWJJVE27WD
 
 markup:
   goldmark:
@@ -45,8 +45,8 @@ Menus:
     #   weight: 2
 
 params:
-  title: "Hugo Profile"
-  description: Text about my cool site
+  title: "Shivant Maharaj"
+  description: "This website is an online portfolio hosting projects that I have worked on, and providing content on my passions and interests."
   # staticPath: ""  # The path to serve the static files from
   favicon: "/fav.png"
 
@@ -57,7 +57,7 @@ params:
 
   theme:
     disableThemeToggle: false
-    # defaultTheme: "light" # dark
+    defaultTheme: "light" # dark
 
   # font:
   #   fontSize: 1.5rem # default: 1rem
@@ -100,10 +100,10 @@ params:
   hero:
     enable: true
     intro: "Hi, my name is"
-    title: "Isabella."
-    subtitle: "I build things for the web"
-    content: "A passionate web app developer. I tend to make use of modern web technologies to build websites that looks great, feels fantastic, and functions correctly."
-    image: /images/hero.svg
+    title: "Shivant."
+    subtitle: "I find cool ways to make data useful."
+    content: "A passionate data scientist that is interested in finding new technologies to make financial services more inclusive. I enjoy delving into a data set and making intriguing visualisations."
+    image: /images/wave.PNG
     button:
       enable: true
       name: "Resume"
@@ -112,7 +112,7 @@ params:
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://example.com
+          url: https://github.com/shivant-maharaj
         - icon: fab fa-twitter
           url: https://example.com
       customIcons:
