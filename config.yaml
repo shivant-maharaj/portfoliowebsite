@@ -238,10 +238,10 @@ params:
           **Scholarships**
           - Commerce Faculty Scholarship (2019)
             
-        featuredLink:
-          enable: true
-          name: "My academic record"
-          url: "https://example.com"
+        # featuredLink:
+        #   enable: true
+        #   name: "My academic record"
+        #   url: "https://example.com"
       # - title: "High School"
       #   school:
       #     name: "Thomas Jefferson High School for Science and Technology."
@@ -257,18 +257,15 @@ params:
     # title: "Custom Name"
     items:
       - title: ViaData Award for Excellence
-        content: I solved all problems with optimal solution.
-        url: https://example.com
+        content: Awarded for Excellence in Final Year Information Systems courses.
       - title: 1st Place - 3rd Year IS Systems Development Project
-        content: Developed a product using Artificial Intelligence.
+        content: Recieved for placing 1st for Systems Development I capstone project. The system was developed using Microsoft ASP.Net MVC and Azure Deployment.
+        url: "http://www.sit.uct.ac.za/sit/news/2019/shield"
       - title: 2019 IS Top Achievers Award 
-        content: Developed a theme and getting 1K+ downloads per month.
-        url: "https://github.com/gurusabarish/hugo-profile"
+        content: The EY Academic Achievement Award for outstanding achievement in Information Systems. Awarded for placing 3rd out of 16 for a Business Process Redesign for the City of Cape Town. 
       - title: 3rd in Business Science 5 year programme (2016 Cohort)
-        content: We are developed a product which can help others.
       - title: Class Medal for Mathematics 1010
-        content: Contributed to a open source project.
-        url: https://example.com
+
 
   # projects
   projects:
