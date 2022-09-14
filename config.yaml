@@ -107,7 +107,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "#"
+      url: "/Shivant Maharaj - CV - August 2022.pdf"
       download: true 
     socialLinks:
       fontAwesomeIcons:
