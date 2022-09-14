@@ -48,7 +48,7 @@ params:
   title: "Shivant Maharaj"
   description: "This website is an online portfolio hosting projects that I have worked on, and providing content on my passions and interests."
   # staticPath: ""  # The path to serve the static files from
-  favicon: "/fav.png"
+  favicon: "/smile.png"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
