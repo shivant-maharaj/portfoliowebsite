@@ -108,7 +108,7 @@ params:
       enable: true
       name: "My CV"
       #email: "smaharaj.mam2023@london.edu"
-      url: "/Shivant Maharaj - CV - August 2022.pdf"
+      url: "/Shivant Maharaj - CV - August 2022 Pass.pdf"
       download: true 
     socialLinks:
       fontAwesomeIcons:
