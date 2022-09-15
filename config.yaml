@@ -272,24 +272,23 @@ params:
     enable: true
     title: "Academic Projects"
     items:
-      - title: Project 1
-        content: A highly customizable and mobile first Hugo template for personal portfolio and blog.
-        image: /images/projects/profile.png
+      - title: Subject Identification with Computer Vision
+        content: Completed an image subject identification and extraction exercise using Python and Computer Vision (OpenCV).
+        image: /images/projects/computer-vision.jpg
         featured:
-          name: Demo
+          name: Repository
           link: https://hugo-profile.netlify.app
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
         #   - "Javascript"
         links:
+          - icon: fab fa-python
           - icon: fa fa-envelope
-            url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
+            url: smaharaj.mam2023@london.edu
           - icon: fab fa-github
             url: https://github.com/gurusabarish/hugo-profile
-          - icon: fab fa-twitter
-            url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
-
+       
       - title: Project 2
         content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
         image: /images/projects/converter.jpg
@@ -300,6 +299,7 @@ params:
         #   - "Django"
         #   - "Bootstrap"
         links:
+          - icon: fab fa-r-project
           - icon: fab fa-github
             url: https://github.com/gurusabarish/converter
 
@@ -314,6 +314,7 @@ params:
         #   - "Bootstrap"
         #   - "Javascript"
         links:
+          - icon: fab fa-r-project
           - icon: fab fa-github
             url: https://github.com/gurusabarish/HugoProfileV2
 
