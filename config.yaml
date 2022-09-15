@@ -273,11 +273,11 @@ params:
     title: "Academic Projects"
     items:
       - title: Subject Identification with Computer Vision
-        content: Completed an image subject identification and extraction exercise using Python and Computer Vision (OpenCV).
+        content: An image subject identification and extraction exercise using Python and Computer Vision (OpenCV).
         image: /images/projects/computer-vision.jpg
         featured:
-          name: Repository
-          link: https://hugo-profile.netlify.app
+          name: View Project
+          link: https://github.com/shivant-maharaj/subject-extraction-opencv
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
@@ -287,13 +287,13 @@ params:
           - icon: fa fa-envelope
             url: smaharaj.mam2023@london.edu
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/hugo-profile
+            url: https://github.com/shivant-maharaj/subject-extraction-opencv
        
-      - title: Project 2
+      - title: R Project 2
         content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
         image: /images/projects/converter.jpg
         featured:
-          name: Demo
+          name: View Project
           link: https://django-converter.herokuapp.com
         # badges:
         #   - "Django"
@@ -303,11 +303,11 @@ params:
           - icon: fab fa-github
             url: https://github.com/gurusabarish/converter
 
-      - title: Project 3
+      - title: R Project 3
         content: A clean and simple Hugo template for personal portfolio and blog.
         image: /images/projects/profile2.jpg
         featured:
-          name: Demo V2
+          name: View Project
           link: https://hugo-profile-2.netlify.app
         # badges:
         #   - "Hugo"
@@ -324,7 +324,7 @@ params:
     title: "Let's grab a coffee!"
     content: What to find out more, have a chat, or discuss an idea? Reach out via the email below and I will get back to you!
     email: smaharaj.mam2023@london.edu
-    btnName: Mail me
+    btnName: Email Me
 
   footer:
     recentPosts: false
