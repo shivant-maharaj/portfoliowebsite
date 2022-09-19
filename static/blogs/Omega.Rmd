@@ -2,6 +2,7 @@
 title: "Omega PLC"
 author: "Shivant Maharaj"
 date: "2022-09-19"
+slug: omega
 output:   
 html_document:
     theme: flatly

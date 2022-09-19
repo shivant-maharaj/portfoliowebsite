@@ -2,6 +2,7 @@
 title: "Weather Analysis in R"
 author: "Shivant Maharaj"
 date: "2022-09-15"
+slug: weather
 output:
   html_document:
     theme: flatly
