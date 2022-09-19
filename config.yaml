@@ -308,7 +308,7 @@ params:
         image: /images/projects/profile2.jpg
         featured:
           name: View Project
-          link: weather
+          link: /blogs/weather
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
@@ -316,7 +316,7 @@ params:
         links:
           - icon: fab fa-r-project
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/HugoProfileV2
+
 
   #Contact
   contact:
