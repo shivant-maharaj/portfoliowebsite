@@ -277,7 +277,7 @@ params:
         image: /images/projects/computer-vision.jpg
         featured:
           name: View Project
-          link: /static/blogs/DataChallengeV1.html
+          link: /blogs/DataChallengeV1.html
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
@@ -294,17 +294,17 @@ params:
         image: /images/projects/salary.jpeg
         featured:
           name: View Project
-          link: /static/blogs/Omega.Rmd
+          link: /blogs/Omega.Rmd
         # badges:
         #   - "Django"
         #   - "Bootstrap"
         links:
           - icon: fab fa-r-project
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/converter
+
 
       - title: Weather Analysis in R
-        content: The following assessment was given as a classroom exercise to test our understanding of R, Version Control, and Visualisations using GGPlot2. Weather data from NASA was provided for analysis.
+        content: The following assessment was given as a classroom exercise to test our understanding of R, Version Control, and Visualisations using GGPlot2. Weather data from NASA was provided for analysis.git 
         image: /images/projects/profile2.jpg
         featured:
           name: View Project
