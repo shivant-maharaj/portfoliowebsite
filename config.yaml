@@ -294,7 +294,7 @@ params:
         image: /images/projects/salary.jpeg
         featured:
           name: View Project
-          link: /blogs/Omega.Rmd
+          link: /blogs/Omega
         # badges:
         #   - "Django"
         #   - "Bootstrap"
@@ -308,7 +308,7 @@ params:
         image: /images/projects/profile2.jpg
         featured:
           name: View Project
-          link: https://hugo-profile-2.netlify.app
+          link: weather
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
