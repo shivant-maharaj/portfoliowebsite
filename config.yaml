@@ -277,7 +277,7 @@ params:
         image: /images/projects/computer-vision.jpg
         featured:
           name: View Project
-          link: https://github.com/shivant-maharaj/subject-extraction-opencv
+          link: /static/blogs/DataChallengeV1.html
         # badges:
         #   - "Hugo"
         #   - "Bootstrap"
@@ -294,7 +294,7 @@ params:
         image: /images/projects/salary.jpeg
         featured:
           name: View Project
-          link: "static/blogs/Omega.Rmd"
+          link: /static/blogs/Omega.Rmd
         # badges:
         #   - "Django"
         #   - "Bootstrap"
