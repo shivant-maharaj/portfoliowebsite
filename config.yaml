@@ -291,7 +291,7 @@ params:
        
       - title: Omega Plc. Salary Analysis in R
         content: The following assessment was given as a classroom exercise to test our understanding of R, Version Control, and Visualisations using GGPlot2. Salary data from Omega Plc was provided for analysis.
-        image: /images/projects/salary.jpeg
+        image: /images/projects/salary.png
         featured:
           name: View Project
           link: /blogs/Omega
@@ -305,7 +305,7 @@ params:
 
       - title: Weather Analysis in R
         content: The following assessment was given as a classroom exercise to test our understanding of R, Version Control, and Visualisations using GGPlot2. Weather data from NASA was provided for analysis.git 
-        image: /images/projects/profile2.jpg
+        image: /images/projects/earth.jpeg
         featured:
           name: View Project
           link: /blogs/weather
