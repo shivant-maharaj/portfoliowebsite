@@ -1,0 +1,276 @@
+---
+title: "Weather Analysis in R"
+author: "Shivant Maharaj"
+date: "2022-09-15"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(wbstats)
+library(countrycode)
+library(patchwork)
+library(gganimate)
+library(scales)
+library(infer)
+library(rayshader)
+library(gganimate)
+```
+
+# Climate change and temperature anomalies
+
+We are analysing a dataset from NASA's Goddard Institute for Space
+Studies to study the effects of climate change in the Northern
+Hemisphere. Glimpsing at the data, we see there are 19 variables and 143
+observations, representing the period between 1880-2022:
+
+```{r weather_data, cache=TRUE}
+
+weather <- 
+  read_csv("https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.csv", 
+           skip = 1, 
+           na = "***")
+glimpse(weather)
+
+```
+
+For the purpose of our analysis, we have decided to select only data
+pertaining to temperature deviation (delta) by month, and manipulate the
+dataframe to facilitate further investigation:
+
+```{r tidyweather}
+
+tidyweather <- select(weather, 1:13) %>% 
+  pivot_longer(!Year, names_to = 'month', values_to = 'delta')
+head(tidyweather)
+  
+
+```
+
+## Plotting Information
+
+First, we are plotting a scatter plot to visualize the evolution of
+delta (temperature deviation) over time:
+
+```{r scatter_plot}
+
+tidyweather <- tidyweather %>%
+  mutate(date = ymd(paste(as.character(Year), month, "1")),
+         month = month(date, label=TRUE),
+         year = year(date))
+
+gg <- ggplot(tidyweather, aes(x=date, y = delta))+
+  geom_point()+
+  geom_smooth(color="red") +
+  theme_bw() +
+  labs (
+    title = "Weather Anomalies"
+  )
+
+#plot_gg(gg,multicore=TRUE,width=5,height=5,scale=250)
+
+```
+
+Adding a line of best fit to the scatterplot clearly shows that, while
+deltas were close to 0 between approximately 1935-1975 and negative
+before that time, temperature in the Northern Hempishere has been
+quickly increasing since then. Notice that the rate of the increase has
+been increasing as well (as signified by increasing deltas).
+
+Next, we will use `facet_wrap()` to visualize the effects of increasing
+temperature by month:
+
+```{r facet_wrap, echo=FALSE}
+
+ggplot(tidyweather, aes(x= year, y = delta))+
+  geom_point()+
+  geom_smooth(color="red") +
+  facet_wrap(~month)+
+  theme_bw() +
+  labs (
+    title = "Weather Anomalies"
+  )
+
+```
+
+We can see that the effect of rising temperature in the Northern
+Hemisphere is common to all months of the year.
+
+As a means to further investigate the effects of climate change, we will
+partition the data into time periods, particularly decades. To that end,
+we will use `case_when()`:
+
+```{r intervals}
+
+comparison <- tidyweather %>% 
+  filter(Year>= 1881) %>%     #remove years prior to 1881
+  #create new variable 'interval', and assign values based on criteria below:
+  mutate(interval = case_when(
+    Year %in% c(1881:1920) ~ "1881-1920",
+    Year %in% c(1921:1950) ~ "1921-1950",
+    Year %in% c(1951:1980) ~ "1951-1980",
+    Year %in% c(1981:2010) ~ "1981-2010",
+    TRUE ~ "2011-present"
+  ))
+
+```
+
+In order to study the effects of climate change by decade, we will
+produce a density plot to investigate the distribution of monthly
+temperature deviations by the time periods selected above:
+
+```{r density_plot }
+
+ggplot(comparison) +
+  aes(x = delta, fill = interval)+
+  #facet_wrap(~month)+
+  geom_density(alpha = 0.2) 
+
+```
+
+The plot clearly shows that with the passage of time, deltas have
+consistently moved to the right hand side of the plot. In other words,
+temperature deviations have been increasing over time.
+
+Lastly, we will also consider annual anomalies by grouping the monthly
+data and producing a scatterplot:
+
+```{r averaging }
+
+#creating yearly averages
+average_annual_anomaly <- tidyweather %>% 
+  group_by(Year) %>%   #grouping data by Year
+  
+  # creating summaries for mean delta 
+  # use `na.rm=TRUE` to eliminate NA (not available) values 
+  summarise(yearly_mean = mean(delta, na.rm=TRUE)) 
+  
+average_annual_anomaly
+#plotting the data
+#Fit the best fit line, using LOESS method
+ggplot(average_annual_anomaly) +
+  aes(x = Year, y = yearly_mean)+
+  geom_point()+
+  geom_smooth(method = 'lm') +
+  theme_bw()
+```
+
+The plot proves that annual temprature deltas have been increasing over
+time.
+
+## Confidence Interval for `delta`
+
+We will now focus on the time period between 2011-present. We divert our
+attention towards producing a confidence interval for the average annual
+deltas calculated since 2011. We will use both the statistical method
+and bootstrap simulation to have more confidence in the results:
+
+```{r, calculate_CI_using_stats }
+
+#statistical method
+formula_ci <- comparison %>% 
+  filter(interval == '2011-present') %>% 
+  group_by(year) %>% 
+  summarise(avg_annual_delta = mean(delta),
+            sd_delta = sd(delta),
+            count = n(),
+            SE = sd(delta/sqrt(count)),
+            upper_ci = avg_annual_delta + 2*SE,
+            lower_ci = avg_annual_delta - 2*SE)
+
+#print out formula_CI
+formula_ci
+```
+
+
+```{r , bootstrap}
+#bootstrap simulation  
+
+set.seed(1234)
+bootstrap <- comparison %>% 
+  filter(interval == '2011-present') %>% 
+  specify(response = delta) %>% 
+  generate(type = 'bootstrap') %>% 
+  calculate(stat = 'mean') 
+
+bootstrap_ci <- bootstrap %>% get_confidence_interval(level = 0.95)
+
+#print out confidence intervals
+bootstrap_ci
+
+#visualise
+visualise(bootstrap)
+
+```
+
+
+```{r}
+library(gapminder)
+library(gganimate)
+library(png)
+library(gifski)
+
+#skimr::skim(gapminder)
+
+# Use the gapminder dataset in ggplot
+ggplot(data=gapminder,
+       aes(x=gdpPercap, y=lifeExp, size=pop, color=country)) +
+  # Add a point geom
+ geom_point(alpha=0.7, show.legend=FALSE) +
+# Add some manual scaling and facets 
+ scale_colour_manual(values=country_colors) +
+ scale_size(range=c(2, 12)) +
+ scale_x_log10() +
+ facet_wrap(~continent, nrow=1) + 
+# Animate figure with gganimate package
+ transition_time(year) +
+ ease_aes('linear') +
+ labs(title='Year: {frame_time}', 
+      x='GDP per capita', 
+      y='Life expectancy')
+```
+
+Looking at the results of the analysis, we can see that the statistical
+method produces wider confidence intervals for temperature deltas,
+ranging from 0.13 to approximately 0.3 in width. This is probably due to
+the low number of observations (12 months in each year), which prohibit
+a more precise calculation. On the other hand, using bootstrap
+simulation allows to get a much narrower confidence interval. However,
+both methods show that temperature deltas have been positive in the time
+period in question and have been consistently greater than 1 since 2015.
+

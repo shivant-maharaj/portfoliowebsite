@@ -272,7 +272,7 @@ params:
     enable: true
     title: "Academic Projects"
     items:
-      - title: Subject Identification with Computer Vision
+      - title: Subject Identification with Computer Vision using Python
         content: An image subject identification and extraction exercise using Python and Computer Vision (OpenCV).
         image: /images/projects/computer-vision.jpg
         featured:
@@ -289,12 +289,12 @@ params:
           - icon: fab fa-github
             url: https://github.com/shivant-maharaj/subject-extraction-opencv
        
-      - title: R Project 2
-        content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
-        image: /images/projects/converter.jpg
+      - title: Omega Plc. Salary Analysis in R
+        content: The following assessment was given as a classroom exercise to test our understanding of R, Version Control, and Visualisations using GGPlot2.
+        image: /images/projects/salary.jpeg
         featured:
           name: View Project
-          link: https://django-converter.herokuapp.com
+          link: "static/blogs/Omega.Rmd"
         # badges:
         #   - "Django"
         #   - "Bootstrap"
@@ -303,7 +303,7 @@ params:
           - icon: fab fa-github
             url: https://github.com/gurusabarish/converter
 
-      - title: R Project 3
+      - title: Weather Analysis in R
         content: A clean and simple Hugo template for personal portfolio and blog.
         image: /images/projects/profile2.jpg
         featured:
